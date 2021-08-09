@@ -26,7 +26,10 @@ public class RegistrationFormTest {
 
         Configuration.baseUrl="https://demoqa.com";
         Configuration.startMaximized = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        String url = System.getProperty("URL", "local");
+        if (!url.equals("local")){
+            Configuration.remote = url;
+        }
         TestData.initPositiveTestData();
         registrationPage = new RegistrationPage();
     }

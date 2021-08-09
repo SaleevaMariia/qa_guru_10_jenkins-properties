@@ -8,6 +8,12 @@ public class SystemPropertiesTest {
 
     @Test
     void test1(){
+        System.out.println("Browser:" + System.getProperty("browser"));
+    }
 
+    @Test
+    void defaultTest(){
+        String value = System.getProperty("our_property", "dafault_value");
+        System.out.println(value);
     }
 }

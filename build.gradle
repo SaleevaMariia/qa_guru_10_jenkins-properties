@@ -39,6 +39,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -50,6 +51,9 @@ tasks.withType(Test) {
 }
 
 task properties_tests(type: Test){
+
+    //задаем значение по умолчанию для browserSize
+    systemProperty("browserSize", System.getProperty("browserSize", "400x400"))
     println("properties test here")
     println System.getProperty("browser")
     useJUnitPlatform{
