@@ -26,7 +26,7 @@ public class RegistrationFormTest {
 
         Configuration.baseUrl="https://demoqa.com";
         Configuration.startMaximized = true;
-        String url = System.getProperty("URL", "local");
+        String url = System.getProperty("url", "local");
         if (!url.equals("local")){
             Configuration.remote = url;
         }
