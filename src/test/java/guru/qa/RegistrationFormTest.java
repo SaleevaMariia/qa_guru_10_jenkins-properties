@@ -2,6 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.config.Credentials;
 import guru.qa.page.RegistrationPage;
 import guru.qa.utils.Attach;
 import guru.qa.utils.TestData;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import static java.lang.String.format;
 
 public class RegistrationFormTest {
 
@@ -28,7 +31,11 @@ public class RegistrationFormTest {
         Configuration.startMaximized = true;
         String url = System.getProperty("url", "local");
         if (!url.equals("local")){
-            Configuration.remote = url;
+            Configuration.remote =
+                    format("https://%s:$s@%s",
+                            Credentials.credentials.login(),
+                            Credentials.credentials.password(),
+                            url);
         }
         TestData.initPositiveTestData();
         registrationPage = new RegistrationPage();
