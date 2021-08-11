@@ -32,7 +32,7 @@ public class RegistrationFormTest {
         String url = System.getProperty("url", "local");
         if (!url.equals("local")){
             Configuration.remote =
-                    format("https://%s:$s@%s",
+                    format("https://%s:%s@%s",
                             Credentials.credentials.login(),
                             Credentials.credentials.password(),
                             url);
