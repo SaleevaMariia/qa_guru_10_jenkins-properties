@@ -7,6 +7,7 @@ import guru.qa.page.RegistrationPage;
 import guru.qa.utils.Attach;
 import guru.qa.utils.TestData;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -36,6 +37,7 @@ public class RegistrationFormTest {
                             Credentials.credentials.login(),
                             Credentials.credentials.password(),
                             url);
+            System.out.println("REMOTE!!!!!!! = " + Configuration.remote);
         }
         TestData.initPositiveTestData();
         registrationPage = new RegistrationPage();
